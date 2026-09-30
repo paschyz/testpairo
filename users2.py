@@ -9,10 +9,10 @@ def get_all_users():
     for user in users:
         orders = session.query(Order).filter_by(user_id=user.id).all()
         result.append({
-            name: user.name,
-            email: user.email,
-            order_count: len(orders),
-            last_order: orders[-1].created_at if orders else None,
+            'name': user.name,
+            'email': user.email,
+            'order_count': len(orders),
+            'last_order': orders[-1].created_at if orders else None,
         })
     return result
 
